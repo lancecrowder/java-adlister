@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Display Name!</title>
+    <title>Display Sum!</title>
 </head>
 <body>
-<h1>Well, Howdy ${name}!</h1>
+<h1>The Sum of your number s is ${sum}!</h1>
 </body>
 </html>

@@ -12,9 +12,9 @@
     <title>Enter Name</title>
 </head>
 <body>
-<form action="/name" method="post">
+<form action="/name" method="POST">
 <h1>Please enter your first Name</h1>
-<input type="text" placeholder="Your First Name Here" name="name" required>
+<input type="text" placeholder="Your First Name Here" name="name" required autofocus>
 <button type="submit">Enter!</button>
 </form>
 </body>
