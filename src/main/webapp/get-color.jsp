@@ -14,7 +14,7 @@
 <body>
 <form action="pickcolor" method="post">
     <h1>Please enter your favorite color</h1>
-    <input type="text" placeholder="Please enter your favorite color Here" name="color" required>
+    <input type="color" placeholder="Please enter your favorite color Here" name="color" required>
     <button type="submit">Enter!</button>
 </form>
 </body>
