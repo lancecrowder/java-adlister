@@ -21,6 +21,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", "true");
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("user", "false");
