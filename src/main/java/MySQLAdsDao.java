@@ -4,20 +4,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class MySQLAdsDao implements Ads {
+public class MySQLAdsDao implements Ads {
     private Connection connection;
 
-//    @Override
-//    public List<Ad> all() {
-//        return null;
-//    }
-
-//    @Override
-//    public Long insert(Ad ad) {
-//        return null;
-//    }
-
-    MySQLAdsDao (Config config) {
+    MySQLAdsDao() {
         try {
             DriverManager.registerDriver(new Driver());
             String url = Config.getUrl();
