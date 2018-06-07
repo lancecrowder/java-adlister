@@ -55,7 +55,7 @@ public class MySQLAdsDao implements Ads {
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate(createQuery(ad), Statement.RETURN_GENERATED_KEYS);
-            ResultSet resultSet = statement.getResultSet();
+            ResultSet resultSet = statement.getGeneratedKeys();
             resultSet.next();
             return resultSet.getLong(1);
         } catch (SQLException e) {
@@ -66,7 +66,7 @@ public class MySQLAdsDao implements Ads {
     private String createQuery(Ad ad){
         return "INSERT INTO ads(user_id, title, description) VALUES"
                 + "(" + ad.getUserId() + ","
-                + "" + ad.getTitle() + ","
-                + "" + ad.getDescription() + ")";
+                + "'" + ad.getTitle() + "',"
+                + "'" + ad.getDescription() + "')";
     }
 }
