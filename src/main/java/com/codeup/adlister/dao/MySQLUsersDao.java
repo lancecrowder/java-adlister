@@ -25,15 +25,30 @@ public class MySQLUsersDao implements Users {
     @Override
     public User findByUsername(String username) {
         try {
-           String sql = "SELECT * FROM users WHERE username = ?";
+           String sql = "SELECT * FROM users WHERE username = ? LIMIT 1";
            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
            statement.setString(1, username);
-           statement.executeUpdate();
+//           statement.executeUpdate();
            ResultSet resultSet = statement.getResultSet();
-           resultSet.next();
-           return extractUserFromResults(resultSet);
+//           resultSet.next();
+           return (User) resultSet;
         } catch (SQLException e) {
-            throw new RuntimeException("Error Retrieving User!", e);
+            throw new RuntimeException("Error finding User by User Name!", e);
+        }
+    }
+
+    @Override
+    public User findByPassword(String password) {
+        try {
+            String sql = "SELECT * FROM users WHERE password = ?";
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, password);
+            statement.executeUpdate();
+            ResultSet resultSet = statement.getResultSet();
+            resultSet.next();
+            return extractUserFromResults(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error Retrieving User by Pass Word!", e);
         }
     }
 
